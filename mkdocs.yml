@@ -1,0 +1,16 @@
+site_name: Acords
+
+repo_url: https://github.com/wendellast/Acords
+repo_name: wendellast/Acords
+repo_uri: tree/main/docs
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
+
+markdown_extensions:
+  - attr_list
+
+extra_css:
+  - stylesheets/extra.css
