@@ -10,6 +10,9 @@ def scales(tonic: str, tonality: str) -> dict[str, list[str]]:
         tonic: Note that will be tonic of the scale
         tonality: Scale tonality
 
+    Raises:
+        ValueErro: If tonic note is not found
+        KeyErro: If sacaling does not exist or has not been inplemented
     Returns:
         Returns a dictionary with the notes of the scales and the degrees
 
@@ -20,9 +23,18 @@ def scales(tonic: str, tonality: str) -> dict[str, list[str]]:
         >>> scales('A', 'maior')
         {'notes': ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'], 'degrees': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}
     """
+    tonic = tonic.upper()
 
-    intervals = SCALES[tonality]
-    tonic_pos = NOTES.index(tonic)
+    try:
+        intervals = SCALES[tonality]
+        tonic_pos = NOTES.index(tonic)
+    except ValueError:
+        raise ValueError(f'Note not found, try one of thesee {NOTES}')
+
+    except KeyError:
+        raise KeyError(
+            f'These scales do not exist or have not been implemented, try one of these: {list(SCALES.keys())}'
+        )
 
     temp = []
 
