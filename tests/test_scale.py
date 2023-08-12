@@ -50,7 +50,7 @@ def test_should_return_the_correct_notes(tonic, expected):
     assert result['notes'] == expected
 
 
-def test_should_return_seven_degrees():
+def test_should_return_seve_n_degrees():
     tonic = 'C'
     tonality = 'maior'
     expected = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']
